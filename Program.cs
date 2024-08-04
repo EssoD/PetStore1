@@ -19,7 +19,17 @@
                         Console.WriteLine("Enter Product Name");
                         product.Name = Console.ReadLine();
                         Console.WriteLine(product.Name);
+
+                        Console.WriteLine("What is the descrption");
+                        product.Description = Console.ReadLine();
+
+                        Console.WriteLine("What is the material");
+                        product.Material = Console.ReadLine();
+
+                        Console.WriteLine($"Product Name = {product.Name}, Description = {product.Description}, Material = {product.Material} ");
                     }
+
+                 
                 }
 
             }
