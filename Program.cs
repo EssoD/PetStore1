@@ -58,7 +58,16 @@ namespace PetStore1
                     Console.WriteLine("Enter dog leash name");
                     var leashName = Console.ReadLine();
                    var productRetrieved = ProductLogic.GetDogLeashByName(leashName);
-                    Console.WriteLine($"Product Name:  {productRetrieved.Name}, Description = {productRetrieved.Description}");
+                    if (productRetrieved != null)
+                    {
+                        Console.WriteLine($"Product Name:  {productRetrieved.Name}, Description = {productRetrieved.Description}");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("No product found with that name");
+                    }
+                    
                 }
 
                 Console.WriteLine("Press 1 to add a product");
