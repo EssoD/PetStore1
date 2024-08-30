@@ -14,7 +14,10 @@ namespace PetStore1
             Console.WriteLine(" 2 to view a dog leash");
             Console.WriteLine("Type 'exit' to quit");
             Console.WriteLine("Press 8 to view all products");
+            Console.WriteLine(" press 9 to view all in stock items");
+            Console.WriteLine("press 10 to get out of stock items");
             userInput = Console.ReadLine();
+
 
             while (userInput.ToLower() != "exit")
             {
@@ -33,7 +36,7 @@ namespace PetStore1
                         Console.WriteLine("What is the material");
                         product.Material = Console.ReadLine();
 
-                     
+
                     }
                     ProductLogic.addProduct(product);
                     Console.WriteLine($"Product Name:  {product.Name}, Description = {product.Description}, Material = {product.Material} ");
@@ -57,7 +60,7 @@ namespace PetStore1
                 {
                     Console.WriteLine("Enter dog leash name");
                     var leashName = Console.ReadLine();
-                   var productRetrieved = ProductLogic.GetDogLeashByName(leashName);
+                    var productRetrieved = ProductLogic.GetDogLeashByName(leashName);
                     if (productRetrieved != null)
                     {
                         Console.WriteLine($"Product Name:  {productRetrieved.Name}, Description = {productRetrieved.Description}");
@@ -67,20 +70,40 @@ namespace PetStore1
                     {
                         Console.WriteLine("No product found with that name");
                     }
-                    
+
                 }
 
-                Console.WriteLine("Press 1 to add a product");
-                Console.WriteLine(" 2 to view a dog leash");
-                Console.WriteLine("Type 'exit' to quit");
-                Console.WriteLine("Press 8 to view all products");
-                userInput = Console.ReadLine();
+                else if (userInput == "9")
+                {
+                    ProductLogic.GetOnlyInStockProducts();
+
+                }
+
+                else if (userInput == "10")
+                {
+                    var OutofStockItems = ProductLogic.GetOutOfStockProducts();
+                    foreach (var item in OutofStockItems)
+                    {
+                        Console.WriteLine($"Out of stock Items: {item}");
+                    }
+
+                    
+
+                }
+
+                    Console.WriteLine("Press 1 to add a product");
+                    Console.WriteLine(" 2 to view a dog leash");
+                    Console.WriteLine("Type 'exit' to quit");
+                    Console.WriteLine("Press 8 to view all products");
+                    Console.WriteLine(" press 9 to view all in stock items");
+                    Console.WriteLine("press 10 to get out of stock items");
+                    userInput = Console.ReadLine();
+
+            
+
 
             }
-
-
         }
     }
-    }
-   
+} 
 
