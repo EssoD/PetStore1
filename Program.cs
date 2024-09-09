@@ -11,11 +11,11 @@ namespace PetStore1
 
 
             Console.WriteLine("Press 1 to add a product");
-            Console.WriteLine(" 2 to view a dog leash");
-            Console.WriteLine("Type 'exit' to quit");
+            Console.WriteLine("Press 2 to view a dog leash");
             Console.WriteLine("Press 8 to view all products");
             Console.WriteLine(" press 9 to view all in stock items");
             Console.WriteLine("press 10 to get out of stock items");
+            Console.WriteLine("Type 'exit' to quit");
             userInput = Console.ReadLine();
 
 
@@ -35,11 +35,14 @@ namespace PetStore1
 
                         Console.WriteLine("What is the material");
                         product.Material = Console.ReadLine();
+                        
+                        Console.WriteLine("What is the price");
+                        product.Price = decimal.Parse(Console.ReadLine());
 
 
                     }
                     ProductLogic.addProduct(product);
-                    Console.WriteLine($"Product Name:  {product.Name}, Description = {product.Description}, Material = {product.Material} ");
+                    Console.WriteLine($"Product Name:  {product.Name}, Description = {product.Description}, Material = {product.Material}, Price = {product.Price} ");
 
                 }
 
@@ -52,7 +55,9 @@ namespace PetStore1
                         //Console.WriteLine(product);
                         Console.WriteLine(product.Name);
                         Console.WriteLine(product.Description);
-                        //Console.WriteLine(product.Material);
+                        Console.WriteLine(product.Price);
+
+                    
 
                     }
                 }
@@ -63,8 +68,8 @@ namespace PetStore1
                     var productRetrieved = ProductLogic.GetDogLeashByName(leashName);
                     if (productRetrieved != null)
                     {
-                        Console.WriteLine($"Product Name:  {productRetrieved.Name}, Description = {productRetrieved.Description}");
-
+                        Console.WriteLine($"Product Name = {productRetrieved.Name}, Description = {productRetrieved.Description}, Product price = {productRetrieved.Price}");
+                        Console.WriteLine($" Discounted Price = {productRetrieved.Price.DiscountThisPrice()}");
                     }
                     else
                     {
@@ -93,11 +98,11 @@ namespace PetStore1
 
                     Console.WriteLine("Press 1 to add a product");
                     Console.WriteLine(" 2 to view a dog leash");
-                    Console.WriteLine("Type 'exit' to quit");
                     Console.WriteLine("Press 8 to view all products");
                     Console.WriteLine(" press 9 to view all in stock items");
                     Console.WriteLine("press 10 to get out of stock items");
-                    userInput = Console.ReadLine();
+                    Console.WriteLine("Type 'exit' to quit");
+                userInput = Console.ReadLine();
 
             
 
